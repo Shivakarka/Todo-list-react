@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TodoForm from "./components/TodoForm";
@@ -47,6 +47,7 @@ function App() {
 
   const handleEdit = (id) => {
     const editTodo = todos.find((i) => i.id === id);
+    inputElement.current.focus();
     setTodo(editTodo.todo);
     setEditId(id);
   };
@@ -66,6 +67,8 @@ function App() {
     localStorage.setItem("items", JSON.stringify(todos));
   }, [todos]);
 
+  const inputElement = useRef();
+
   return (
     <div className="App">
       <div className="container ">
@@ -75,6 +78,7 @@ function App() {
           editId={editId}
           setTodo={setTodo}
           handleReset={handleReset}
+          inputElement={inputElement}
         />
 
         <TodoList
