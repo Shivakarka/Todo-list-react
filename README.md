@@ -1,6 +1,7 @@
 # React TODO App
 <br>
 A complete CRUD react todo app where user can add/edit/delete his daily todos. Data is persisted using Local Storage.
+Tech Stack : React, Bootstrap
 
 <br>
 
